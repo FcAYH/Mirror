@@ -15,6 +15,11 @@ namespace Mirror.Examples.PredictionBenchmark
 
             // ensure vsync is disabled for the benchmark, otherwise results are capped
             QualitySettings.vSyncCount = 0;
+
+            // stacked cubes are only stable if solver iteration is high enough!
+            int before = Physics.defaultSolverIterations;
+            Physics.defaultSolverIterations = 100;
+            Debug.Log($"Physics.defaultSolverIterations: {before} -> {Physics.defaultSolverIterations}");
         }
 
         void SpawnAll()

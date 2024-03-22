@@ -410,7 +410,7 @@ MonoBehaviour:
   evaluationMethod: 0
   evaluationInterval: 3
   timeInterpolationGui: 0
-  spawnAmount: 1000
+  spawnAmount: 300
   spawnPrefab: {fileID: 1161087258037110271, guid: 8e024f835ef4842998861f956ca7cb5c,
     type: 3}
   interleave: 1
