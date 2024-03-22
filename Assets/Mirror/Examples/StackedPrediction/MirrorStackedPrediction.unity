@@ -414,7 +414,7 @@ MonoBehaviour:
   spawnPrefab: {fileID: 1161087258037110271, guid: 8e024f835ef4842998861f956ca7cb5c,
     type: 3}
   interleave: 1
-  solverIterations: 100
+  solverIterations: 200
 --- !u!4 &1432777613
 Transform:
   m_ObjectHideFlags: 0

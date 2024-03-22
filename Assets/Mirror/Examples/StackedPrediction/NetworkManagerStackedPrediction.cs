@@ -8,8 +8,10 @@ namespace Mirror.Examples.PredictionBenchmark
         public int spawnAmount = 1000;
         public GameObject spawnPrefab;
         public float interleave = 1;
+
+        // 500 objects need around 100 iterations to be stable
         [Tooltip("Stacked Cubes are only stable if solver iterations are high enough!")]
-        public int solverIterations = 100;
+        public int solverIterations = 200;
 
         public override void Awake()
         {
