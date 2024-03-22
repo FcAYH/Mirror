@@ -70,8 +70,8 @@ namespace Mirror.Examples.PredictionBenchmark
 
             // disable rendering on server to reduce noise in profiling.
             // keep enabled in host mode though.
-            if (mode == NetworkManagerMode.ServerOnly)
-                Camera.main.enabled = false;
+            // if (mode == NetworkManagerMode.ServerOnly)
+            //     Camera.main.enabled = false;
         }
     }
 }
