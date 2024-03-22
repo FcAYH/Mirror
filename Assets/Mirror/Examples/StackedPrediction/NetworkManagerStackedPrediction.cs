@@ -7,7 +7,7 @@ namespace Mirror.Examples.PredictionBenchmark
         [Header("Spawns")]
         public int spawnAmount = 1000;
         public GameObject spawnPrefab;
-        public Bounds spawnArea = new Bounds(new Vector3(0, 2.5f, 0), new Vector3(10f, 5f, 10f));
+        public float interleave = 1;
 
         public override void Awake()
         {
@@ -19,19 +19,38 @@ namespace Mirror.Examples.PredictionBenchmark
 
         void SpawnAll()
         {
-            // spawn randomly inside the cage
-            for (int i = 0; i < spawnAmount; ++i)
-            {
-                // choose a random point within the cage
-                float x = Random.Range(spawnArea.min.x, spawnArea.max.x);
-                float y = Random.Range(spawnArea.min.y, spawnArea.max.y);
-                float z = Random.Range(spawnArea.min.z, spawnArea.max.z);
-                Vector3 position = new Vector3(x, y, z);
+            // calculate sqrt so we can spawn N * N = Amount
+            float sqrt = Mathf.Sqrt(spawnAmount);
 
-                // spawn & position
-                GameObject go = Instantiate(spawnPrefab);
-                go.transform.position = position;
-                NetworkServer.Spawn(go);
+            // calculate spawn xz start positions
+            // based on spawnAmount * distance
+            float offset = -sqrt / 2 * interleave;
+
+            // spawn exactly the amount, not one more.
+            int spawned = 0;
+            for (int spawnX = 0; spawnX < sqrt; ++spawnX)
+            {
+                for (int spawnY = 0; spawnY < sqrt; ++spawnY)
+                {
+                    // spawn exactly the amount, not any more
+                    // (our sqrt method isn't 100% precise)
+                    if (spawned < spawnAmount)
+                    {
+                        // it's important to have them at least 'Physics.defaultContactOffset' apart.
+                        // otherwise the physics engine will detect collisions and make them unstable.
+                        float spacing = interleave + Physics.defaultContactOffset;
+                        float x = offset + spawnX * spacing;
+                        float y = spawnY * spacing;
+
+                        // instantiate & position
+                        GameObject go = Instantiate(spawnPrefab);
+                        go.transform.position = new Vector3(x, y, 0);
+
+                        // spawn
+                        NetworkServer.Spawn(go);
+                        ++spawned;
+                    }
+                }
             }
         }
 

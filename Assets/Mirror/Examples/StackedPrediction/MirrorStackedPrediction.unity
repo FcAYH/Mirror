@@ -413,9 +413,7 @@ MonoBehaviour:
   spawnAmount: 1000
   spawnPrefab: {fileID: 1161087258037110271, guid: 8e024f835ef4842998861f956ca7cb5c,
     type: 3}
-  spawnArea:
-    m_Center: {x: 0, y: 2.5, z: 0}
-    m_Extent: {x: 5, y: 2.5, z: 5}
+  interleave: 1
 --- !u!4 &1432777613
 Transform:
   m_ObjectHideFlags: 0
@@ -522,8 +520,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2101508988}
-  m_LocalRotation: {x: 0.23447317, y: -0.55936676, z: 0.16881421, w: 0.77693826}
-  m_LocalPosition: {x: 37.375748, y: 26.1718, z: -12.502195}
+  m_LocalRotation: {x: 0.2943274, y: -0.28922528, z: 0.09395835, w: 0.9060309}
+  m_LocalPosition: {x: 29.62062, y: 44.436695, z: -42.575485}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
