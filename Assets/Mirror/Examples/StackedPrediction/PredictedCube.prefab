@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 1161087258037110146}
   - component: {fileID: 2515824601545922644}
   - component: {fileID: -4200539020284490047}
-  - component: {fileID: 1988709009801129445}
   m_Layer: 0
   m_Name: PredictedCube
   m_TagString: Untagged
@@ -162,7 +161,7 @@ MonoBehaviour:
   oneFrameAhead: 1
   correctionMode: 1
   snapThreshold: 2
-  showGhost: 1
+  showGhost: 0
   ghostVelocityThreshold: 0.1
   localGhostMaterial: {fileID: 2100000, guid: 411a48b4a197d4924bec3e3809bc9320, type: 2}
   remoteGhostMaterial: {fileID: 2100000, guid: 04f0b2088c857414393bab3b80356776, type: 2}
@@ -172,19 +171,3 @@ MonoBehaviour:
   teleportDistanceMultiplier: 10
   reduceSendsWhileIdle: 1
   lineTime: 10
---- !u!114 &1988709009801129445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1161087258037110271}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a1438116a7f4afb89cf449850639d09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  force: 50
