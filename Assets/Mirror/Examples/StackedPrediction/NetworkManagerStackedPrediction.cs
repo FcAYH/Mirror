@@ -8,6 +8,8 @@ namespace Mirror.Examples.PredictionBenchmark
         public int spawnAmount = 1000;
         public GameObject spawnPrefab;
         public float interleave = 1;
+        [Tooltip("Stacked Cubes are only stable if solver iterations are high enough!")]
+        public int solverIterations = 100;
 
         public override void Awake()
         {
@@ -18,7 +20,7 @@ namespace Mirror.Examples.PredictionBenchmark
 
             // stacked cubes are only stable if solver iteration is high enough!
             int before = Physics.defaultSolverIterations;
-            Physics.defaultSolverIterations = 100;
+            Physics.defaultSolverIterations = solverIterations;
             Debug.Log($"Physics.defaultSolverIterations: {before} -> {Physics.defaultSolverIterations}");
         }
 
